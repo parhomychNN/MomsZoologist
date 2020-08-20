@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Mum\'s Zoologist</string>
+    <string name="app_title">Я у мамы зоолог</string>
+    <string name="zoologists_memo">Памятка зоолога</string>
+    <string name="my_favorite_animal">Мое любимое животное</string>
+    <string name="animals_gallery">Галерея животных</string>
+    <string name="back_letter">&lt;</string>
+    <string name="animal">Животное</string>
+    <string name="comment">Комментарий</string>
+    <string name="bears">Медведи</string>
+    <string name="bears_info">Медведи - очень спокойные животные</string>
+    <string name="penguins">Пингвины</string>
+    <string name="penguins_info">Пингвины - забавные дядьки</string>
+    <string name="choose_an_animal">Выбери животного</string>
+    <string name="send">Отправить</string>
+    <string name="formatted_toast_animal">Ваш ответ (%1$s, %2$s) отправлен</string>
 </resources>
