@@ -1,14 +1,13 @@
 package ru.parhomych.mumszoologist;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class YourFavoriteAnimalActivity extends AppCompatActivity {
 
@@ -16,6 +15,10 @@ public class YourFavoriteAnimalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_favorite_animal);
+
+        Toolbar toolbar = findViewById(R.id.included_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.my_favorite_animal);
 
         final EditText editTextAnimal = findViewById(R.id.editTextAnimal);
         final EditText editTextComment = findViewById(R.id.editTextComment);
@@ -30,16 +33,12 @@ public class YourFavoriteAnimalActivity extends AppCompatActivity {
                 toast.show();
             }
         });
+    }
 
-        TextView back = findViewById(R.id.textViewBack);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 
 }

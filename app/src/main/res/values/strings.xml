@@ -12,6 +12,13 @@
     <string name="penguins">Пингвины</string>
     <string name="penguins_info">Пингвины - забавные дядьки</string>
     <string name="choose_an_animal">Выбери животного</string>
+    <string name="settings">Настройки</string>
+    <string name="about_the_app">О приложении</string>
     <string name="send">Отправить</string>
+    <string name="cats">Коты</string>
+    <string name="dogs">Собаки</string>
+    <string name="tigers">Тигры</string>
+    <string name="text_about_author">Это приложение написано <i>супер-мега</i> андроид разработчиком Пархоменко Ильёй</string>
+    <string name="my_interests">Мои интересы</string>
     <string name="formatted_toast_animal">Ваш ответ (%1$s, %2$s) отправлен</string>
 </resources>

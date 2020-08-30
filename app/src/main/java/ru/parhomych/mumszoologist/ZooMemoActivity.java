@@ -1,12 +1,12 @@
 package ru.parhomych.mumszoologist;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class ZooMemoActivity extends AppCompatActivity {
 
@@ -15,14 +15,9 @@ public class ZooMemoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zoo_memo);
 
-        TextView back = findViewById(R.id.textViewBack);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        Toolbar toolbar = findViewById(R.id.included_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.zoologists_memo);
 
         final TextView memoTextView = findViewById(R.id.memo_text_view);
 
@@ -45,6 +40,12 @@ public class ZooMemoActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 
 }

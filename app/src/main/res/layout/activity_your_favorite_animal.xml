@@ -2,62 +2,45 @@
 
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/activity_header"
+    <include
+        android:id="@+id/included_toolbar"
+        layout="@layout/app_toolbar" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextAnimalWrapper"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/included_toolbar">
 
-        <TextView
-            android:id="@+id/textViewBack"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="0"
-            android:background="@color/colorDarkBackground"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="@string/back_letter"
-            android:textColor="@color/colorWhite"
-            android:textSize="36sp" />
-
-        <TextView
-            android:id="@+id/textViewHeader"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/editTextAnimal"
+            style="@style/CustomEditText"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="@string/my_favorite_animal"
-            android:textAlignment="center"
-            android:textSize="24sp" />
+            android:hint="@string/animal"
+            android:textColorHint="@color/colorAccent" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/editTextAnimal"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextCommentWrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_header"
-        android:ems="10"
-        android:hint="@string/animal"
-        android:textColorHint="@color/colorAccent" />
+        android:layout_below="@id/editTextAnimalWrapper">
 
-    <EditText
-        android:id="@+id/editTextComment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextAnimal"
-        android:ems="10"
-        android:hint="@string/comment"
-        android:inputType="textMultiLine"
-        android:minLines="4"
-        android:gravity="bottom|start"
-        android:textColorHint="@color/colorAccent" />
+        <EditText
+            android:id="@+id/editTextComment"
+            style="@style/CustomEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextAnimalWrapper"
+            android:gravity="bottom|start"
+            android:hint="@string/comment"
+            android:inputType="textMultiLine"
+            android:minLines="4" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/buttonSend"

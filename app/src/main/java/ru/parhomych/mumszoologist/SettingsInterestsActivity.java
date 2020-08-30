@@ -5,17 +5,17 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class GalleryActivity extends AppCompatActivity {
+public class SettingsInterestsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gallery);
+        setContentView(R.layout.activity_settings_interests);
 
         Toolbar toolbar = findViewById(R.id.included_toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setTitle(R.string.animals_gallery);
+        getSupportActionBar().setTitle(R.string.about_the_app);
 
     }
 
@@ -24,4 +24,5 @@ public class GalleryActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
+
 }

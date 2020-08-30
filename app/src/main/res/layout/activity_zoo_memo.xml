@@ -1,49 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_zoo_memo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ZooMemoActivity"
-    android:id="@+id/activity_zoo_memo">
+    tools:context=".ZooMemoActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/activity_header">
-
-        <TextView
-            android:id="@+id/textViewBack"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="0"
-            android:background="@color/colorDarkBackground"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="@string/back_letter"
-            android:textColor="@color/colorWhite"
-            android:textSize="36sp" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="@string/zoologists_memo"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-    </LinearLayout>
+    <include layout="@layout/app_toolbar"
+        android:id="@+id/included_toolbar"/>
 
     <RadioGroup
         android:id="@+id/radioButtonGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/activity_header">
+        app:layout_constraintTop_toBottomOf="@id/included_toolbar">
 
         <RadioButton
             android:id="@+id/radioButtonBears"
@@ -63,6 +34,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/choose_an_animal"
-        app:layout_constraintTop_toBottomOf="@id/radioButtonGroup"
-        />
+        app:layout_constraintTop_toBottomOf="@id/radioButtonGroup" />
 </androidx.constraintlayout.widget.ConstraintLayout>
