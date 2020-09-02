@@ -15,7 +15,7 @@ public class SettingsInterestsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.included_toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setTitle(R.string.about_the_app);
+        getSupportActionBar().setTitle(R.string.settings);
 
     }
 

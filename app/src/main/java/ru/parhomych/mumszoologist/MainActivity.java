@@ -6,12 +6,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
+
+    TextView favoriteAnimalResultTextView;
+    private final int REQUEST_CODE_FOR_FAVORITE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), YourFavoriteAnimalActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, REQUEST_CODE_FOR_FAVORITE);
             }
         });
 
@@ -47,6 +52,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == REQUEST_CODE_FOR_FAVORITE) {
+                favoriteAnimalResultTextView = findViewById(R.id.favoriteAnimalResultTextView);
+                if (data == null) {
+                    return;
+                }
+                String favorite_animal = data.getStringExtra("favorite_animal");
+                if (favorite_animal == null || favorite_animal.length() == 0) {
+                    favoriteAnimalResultTextView.setText("");
+                    return;
+                }
+                favoriteAnimalResultTextView.setText(String.format(getString(R.string.my_favorite_animal_result_on_main), favorite_animal));
+            }
+        }
+
     }
 
     @Override
