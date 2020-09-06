@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.res.ResourcesCompat;
 
 public class GalleryImageActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class GalleryImageActivity extends AppCompatActivity {
 
         if (image_id != -1) {
             ImageView imageView = findViewById(R.id.image_for_show);
-            // TODO: take the image with id = image_id and place it on imageView
+            imageView.setImageDrawable(ResourcesCompat.getDrawable(getResources(), image_id, null));
         }
     }
 }

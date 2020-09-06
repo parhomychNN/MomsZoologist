@@ -29,25 +29,35 @@ public class GalleryActivity extends AppCompatActivity {
         ImageView imageView4 = findViewById(R.id.imageView4);
         ImageView imageView5 = findViewById(R.id.imageView5);
 
-        List<ImageView> images = new ArrayList<>();
+        imageView1.setTag(R.drawable.img1);
+        imageView2.setTag(R.drawable.img2);
+        imageView3.setTag(R.drawable.img3);
+        imageView4.setTag(R.drawable.img4);
+        imageView5.setTag(R.drawable.img5);
 
-        images.add(imageView1);
-        images.add(imageView2);
-        images.add(imageView3);
-        images.add(imageView4);
-        images.add(imageView5);
+        List<ImageView> imageViews = new ArrayList<>();
 
-        for (ImageView imageView : images) {
+        imageViews.add(imageView1);
+        imageViews.add(imageView2);
+        imageViews.add(imageView3);
+        imageViews.add(imageView4);
+        imageViews.add(imageView5);
+
+        for (ImageView imageView : imageViews) {
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getApplicationContext(), GalleryImageActivity.class);
-                    intent.putExtra("image_id", view.getId());
+                    intent.putExtra("image_id", getDrawableId((ImageView)view));
                     startActivity(intent);
                 }
             });
         }
 
+    }
+
+    private int getDrawableId(ImageView iv) {
+        return (Integer) iv.getTag();
     }
 
     @Override
