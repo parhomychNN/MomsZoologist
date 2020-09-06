@@ -1,6 +1,7 @@
 package ru.parhomych.mumszoologist.animalList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.parhomych.mumszoologist.GalleryImageActivity;
 import ru.parhomych.mumszoologist.R;
 
 public class AnimalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -40,7 +42,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        AnimalItem item = itemList.get(position);
+        final AnimalItem item = itemList.get(position);
 
         AnimalViewHolder animalViewHolder = (AnimalViewHolder) holder;
         animalViewHolder.animalDescriptionTextView.setText(item.getDescription());
@@ -48,6 +50,15 @@ public class AnimalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         animalViewHolder.animalImageImageView.setImageDrawable(ResourcesCompat.getDrawable(
                 context.getResources(), item.getAnimalImageId(), null)
         );
+
+        animalViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, GalleryImageActivity.class);
+                intent.putExtra("image_id", item.getAnimalImageId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
