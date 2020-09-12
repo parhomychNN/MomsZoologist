@@ -1,6 +1,7 @@
 package ru.parhomych.mumszoologist.animalList;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import ru.parhomych.mumszoologist.R;
@@ -19,6 +20,7 @@ public class DataUtils {
         items.add(new AnimalItem("Тигра","Описание тигры", R.drawable.img3));
         items.add(new AnimalItem("Котейка","Описание котейки", R.drawable.img4));
         items.add(new AnimalItem("Панда","Описание панды", R.drawable.img5));
+        Collections.shuffle(items);
         return items;
     }
 

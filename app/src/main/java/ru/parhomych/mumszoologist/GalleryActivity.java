@@ -1,6 +1,7 @@
 package ru.parhomych.mumszoologist;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import ru.parhomych.mumszoologist.animalList.AnimalAdapter;
 import ru.parhomych.mumszoologist.animalList.DataUtils;
@@ -41,6 +43,15 @@ public class GalleryActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(dividerItemDecoration);
 
         animalAdapter.setItemList(DataUtils.getAnimalItems());
+
+        final SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.gallery_swipe_refresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                animalAdapter.setItemList(DataUtils.getAnimalItems());
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
     }
 
